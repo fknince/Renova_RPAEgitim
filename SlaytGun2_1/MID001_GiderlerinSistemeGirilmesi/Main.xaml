@@ -75,12 +75,12 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="701,795" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="723,795" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">70,22.5</av:Point>
-        <x:Double x:Key="StateContainerWidth">667</x:Double>
+        <x:Double x:Key="StateContainerWidth">689</x:Double>
         <x:Double x:Key="StateContainerHeight">701.99999999999989</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">130,60 160,60 160,58.1666666666667 223,58.1666666666667</av:PointCollection>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -147,27 +147,13 @@
                 <TryCatch.Try>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetTransactionData workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Framework\GetTransactionData.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
-                        <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                      </InArgument>
-                      <OutArgument x:TypeArguments="ui:QueueItem" x:Key="out_TransactionItem">
-                        <mva:VisualBasicReference x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField1">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TransactionField1" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField2">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TransactionField2" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionID">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TransactionID" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_TransactionData">
-                        <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="TransactionData" />
-                      </OutArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[TransactionNumber]</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                      <OutArgument x:TypeArguments="ui:QueueItem" x:Key="out_TransactionItem">[TransactionItem]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField1">[TransactionField1]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField2">[TransactionField2]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionID">[TransactionID]</OutArgument>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_TransactionData">[TransactionData]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </TryCatch.Try>
@@ -271,34 +257,18 @@
                       </Sequence>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ManipulationForInputData workflow" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="BackgroundWFs\ManipulationForInputData.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InOutArgument x:TypeArguments="x:String" x:Key="inOut_strCalisanNo">
-                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCalisanNo" />
-                          </InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="inOut_strCalisanNo">[strCalisanNo]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenMainSteps workflow" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenMainSteps.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strAd">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Ad&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strSoyad">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Soyad&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strCalisanNo">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCalisanNo" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTarihi">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Harcama Tarihi&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTutari">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Harcama Tutarı&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strAciklama">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Açıklama&quot;).ToString" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_strKalem">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Kalem&quot;).ToString" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strAd">[TransactionData("Ad").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strSoyad">[TransactionData("Soyad").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strCalisanNo">[strCalisanNo]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTarihi">[TransactionData("Harcama Tarihi").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTutari">[TransactionData("Harcama Tutarı").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strAciklama">[TransactionData("Açıklama").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strKalem">[TransactionData("Kalem").ToString]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -398,7 +368,7 @@
                 <Transition DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">303.633333333333,627.666666666667 303.633333333333,657.666666666667 507,657.666666666667 507,63.3166666666667 477,63.3166666666667</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">303.633333333333,627.666666666667 303.633333333333,657.666666666667 585.5,657.666666666667 585.5,63.3166666666667 477,63.3166666666667</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">23</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -406,7 +376,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemException IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="797,2764" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="254,103" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="751,2346" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -515,22 +485,14 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetDataFromExcel workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="FrameworkWFs\GetDataFromExcel.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strExcelFileFullPath">
-                                            <Literal x:TypeArguments="x:String">Data\Input\InputFileTemplate.xlsx</Literal>
-                                          </InArgument>
-                                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtbReceivedData">
-                                            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtbInputData" />
-                                          </OutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strExcelFileFullPath">Data\Input\InputFileTemplate.xlsx</InArgument>
+                                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtbReceivedData">[dtbInputData]</OutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke FillQueue workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="FrameworkWFs\FillQueue.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtbInputData">
-                                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtbInputData" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strQueueName">
-                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;OrchestratorQueueName&quot;).ToString" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtbInputData">[dtbInputData]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strQueueName">[Config("OrchestratorQueueName").ToString]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -544,12 +506,8 @@
                               </ui:InvokeWorkflowFile>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="671,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFihopaUsername">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFihopaUsername" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrFihopaPassword">
-                                    <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="sstrFihopaPassword" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFihopaUsername">[strFihopaUsername]</InArgument>
+                                  <InArgument x:TypeArguments="ss:SecureString" x:Key="in_sstrFihopaPassword">[sstrFihopaPassword]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -645,19 +603,13 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenSavingSteps workflow" sap:VirtualizedContainerService.HintSize="361,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenSavingSteps.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <OutArgument x:TypeArguments="x:String" x:Key="out_strReferanceNo">
-                                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strReferenceNo" />
-                                                </OutArgument>
+                                                <OutArgument x:TypeArguments="x:String" x:Key="out_strReferanceNo">[strReferenceNo]</OutArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenPDFExport workflow" sap:VirtualizedContainerService.HintSize="361,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenPDFExport.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_DirectoryPathToExport">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Environment.CurrentDirectory+&quot;\Data\Temp&quot;" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceNo">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strReferenceNo" />
-                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_DirectoryPathToExport">[Environment.CurrentDirectory+"\Data\Temp"]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceNo">[strReferenceNo]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                           </Sequence>
@@ -724,7 +676,7 @@
                 <Transition sap2010:Annotation.AnnotationText="Business Rule Exception" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="448.8,537.6" sap2010:WorkflowViewState.IdRef="Transition_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">361.383333333333,627.666666666667 361.383333333333,657.666666666667 624.5,657.666666666667 624.5,245.933333333333 475.333333333333,245.933333333333</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">361.383333333333,627.666666666667 361.383333333333,673 646.5,673 646.5,245.933333333333 475.333333333333,245.933333333333</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">20</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
