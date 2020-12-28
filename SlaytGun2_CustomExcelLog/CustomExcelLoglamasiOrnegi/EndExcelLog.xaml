@@ -1,0 +1,368 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WFEndLogProcess" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_LogunKaydedilecegiDizin" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProjeIsmi" Type="InArgument(x:String)" />
+    <x:Property Name="in_KopyalananUipathLogDosyasi" Type="InArgument(x:String)" />
+    <x:Property Name="in_OkunacakUipathLogDosyasi" Type="InArgument(x:String)" />
+    <x:Property Name="out_KaydedilenExcelYol" Type="OutArgument(x:String)" />
+    <x:Property Name="in_LoglamaIslemBaslangicTarihi" Type="InArgument(s:DateTime)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,3678</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>WFEndLogProcess_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="606,3613" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="564,3521" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="WFEndLogProcess" sap:VirtualizedContainerService.HintSize="526,3294" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="TxtLog" />
+            <Variable x:TypeArguments="sd:DataTable" Name="LogDT" />
+            <Variable x:TypeArguments="s:DateTime" Name="EndDateTime" />
+            <Variable x:TypeArguments="s:DateTime" Name="StartDateTime" />
+            <Variable x:TypeArguments="x:Boolean" Name="IsLogExist" />
+            <Variable x:TypeArguments="x:Boolean" Name="IsCopyLogExist" />
+            <Variable x:TypeArguments="x:String" Name="TxtCopyLog" />
+            <Variable x:TypeArguments="x:String" Name="test" />
+            <Variable x:TypeArguments="njl:JObject" Name="jsonLog" />
+            <Variable x:TypeArguments="x:String" Name="LogsFirstRow" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:PathExists sap2010:Annotation.AnnotationText="" DisplayName="Path Exists" Exists="[IsLogExist]" sap:VirtualizedContainerService.HintSize="484,120" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_OkunacakUipathLogDosyasi]" PathType="File">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:PathExists>
+          <ui:PathExists DisplayName="Path Exists" Exists="[IsCopyLogExist]" sap:VirtualizedContainerService.HintSize="484,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_KopyalananUipathLogDosyasi]" PathType="File" />
+          <If Condition="[IsLogExist AND IsCopyLogExist]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_3">
+            <If.Else>
+              <Throw Exception="[new Exception(in_OkunacakUipathLogDosyasi+&quot; dosyası  veya &quot;+in_KopyalananUipathLogDosyasi+&quot;bulunamadı.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </If.Else>
+          </If>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Path Exist kontrolleri yapıldı.&quot;]" />
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim fileStream As FileStream&#xA;Dim textReader As TextReader&#xA;fileStream = New FileStream(strLogFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)&#xA;Using  fileStream&#xA;textReader= New StreamReader(fileStream)&#xA;Using  textReader&#xA;    strText = textReader.ReadToEnd()&#xA;End Using&#xA;End Using" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="484,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+            <ui:InvokeCode.Arguments>
+              <OutArgument x:TypeArguments="x:String" x:Key="strText">[TxtLog]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="strLogFilePath">[in_OkunacakUipathLogDosyasi]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot; okunacak uipath log dosyası okundu&quot;]" />
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim fileStream As FileStream&#xA;Dim textReader As TextReader&#xA;fileStream = New FileStream(strLogFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)&#xA;Using  fileStream&#xA;textReader= New StreamReader(fileStream)&#xA;Using  textReader&#xA;    strText = textReader.ReadToEnd()&#xA;End Using&#xA;End Using" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="484,164" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+            <ui:InvokeCode.Arguments>
+              <OutArgument x:TypeArguments="x:String" x:Key="strText">[TxtCopyLog]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="strLogFilePath">[in_KopyalananUipathLogDosyasi]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Read Text işlemleri yapıldı.&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[TxtLog]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[TxtLog.Replace(TxtCopyLog,"")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:BuildDataTable DataTable="[LogDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Replace yapıldı.&quot;]" />
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each: Tüm satırlar dolaşıldı" sap:VirtualizedContainerService.HintSize="484,427" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Split(TxtLog.Trim,vbNewline)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="LogRow" />
+                </ActivityAction.Argument>
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,293" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <TryCatch.Try>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1021,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonLog]" JsonString="[&quot;{&quot;+LogRow.Trim.Split(&quot;{&quot;(0))(1)]" />
+                      <If Condition="[jsonLog.Item(&quot;windowsIdentity&quot;).ToString.Contains(Environment.UserName)]" DisplayName="If: sadece aynı userın loglarını al" sap:VirtualizedContainerService.HintSize="1021,1278" sap2010:WorkflowViewState.IdRef="If_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="876,1130" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{}]" DataTable="[LogDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="834,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                            <ui:ForEach x:TypeArguments="njl:JProperty" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="834,976" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[jsonLog]">
+                              <ui:ForEach.Body>
+                                <ActivityAction x:TypeArguments="njl:JProperty">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="njl:JProperty" Name="Jprop" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="798,842" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[Not Jprop.Name.Equals(&quot;logType&quot;) AND Not Jprop.Name.Equals(&quot;fingerprint&quot;) AND Not Jprop.Name.Equals(&quot;processVersion&quot;) AND Not Jprop.Name.Equals(&quot;jobId&quot;) AND Not Jprop.Name.Equals(&quot;machineId&quot;) AND Not Jprop.Name.Equals(&quot;logF_BusinessProcessName&quot;) AND Not LogDT.Columns.IndexOf(Jprop.Name) &gt;= 0]" sap:VirtualizedContainerService.HintSize="756,262" sap2010:WorkflowViewState.IdRef="If_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" DefaultValue="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="[Jprop.Name]" DataTable="[LogDT]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" MaxLength="900" Unique="False" />
+                                        </Sequence>
+                                      </If.Then>
+                                    </If>
+                                    <If Condition="[LogDT.Columns.IndexOf(Jprop.Name) &gt;= 0]" sap:VirtualizedContainerService.HintSize="756,448" sap2010:WorkflowViewState.IdRef="If_1">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="611,300" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If Condition="[Jprop.Name.Equals(&quot;timeStamp&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_2">
+                                            <If.Then>
+                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[LogDT.Rows(LogDT.Rows.Count-1).Item(Jprop.Name)]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">[Convert.ToDateTime(cstr(Jprop.Value)).ToString("dd/MM/yyyy HH:mm:ss")]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[LogDT.Rows(LogDT.Rows.Count-1).Item(Jprop.Name)]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Object">[Jprop.Value]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </If.Then>
+                                    </If>
+                                  </Sequence>
+                                </ActivityAction>
+                              </ui:ForEach.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:ForEach>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Warn" Message="[&quot;For Each: Tüm satırlar dolaşıldı: &quot;+exception.Message]" />
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Tüm json satırları eklendi.&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:DateTime">[StartDateTime]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(LogDT.Rows(0).Item("timeStamp").ToString,"dd/MM/yyyy HH:mm:ss",System.Globalization.CultureInfo.CurrentCulture)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:DateTime">[EndDateTime]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(LogDT.Rows(LogDT.Rows.Count-1).Item("timeStamp").ToString,"dd/MM/yyyy HH:mm:ss",System.Globalization.CultureInfo.CurrentCulture)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Çalışma Süresi:&quot;,(EndDateTime.TimeOfDay-StartDateTime.TimeOfDay).ToString}]" DataTable="[LogDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_KaydedilenExcelYol]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_LogunKaydedilecegiDizin+"\"+in_LoglamaIslemBaslangicTarihi.ToString("dd.MM.yyyy_HH.mm.ss")+"_"+in_ProjeIsmi+".xlsx"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_KaydedilenExcelYol]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="Templates\LogExcelTemplate.xlsx" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Log excel template kopyalandı&quot;]" />
+          <ui:WriteRange AddHeaders="True" DataTable="[LogDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="484,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[out_KaydedilenExcelYol]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;WFGenel_LoglamaSonlandirici: Log dosyası içeriği yazıldı.&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_25">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Error" Message="[&quot;AkLibrary: WFLoglamaSonlandirici: &quot;+exception.Source+&quot;:&quot;+exception.Message]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,322" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch.Try>
+            <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[in_KopyalananUipathLogDosyasi]" />
+          </TryCatch.Try>
+          <TryCatch.Catches>
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="s:Exception">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                </ActivityAction.Argument>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Kopyalanan log dosyası silinemedi: &quot;+exception.Source+&quot;:&quot;+exception.Message]" />
+              </ActivityAction>
+            </Catch>
+          </TryCatch.Catches>
+        </TryCatch>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>
