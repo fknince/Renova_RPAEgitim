@@ -1,5 +1,5 @@
 {
-  "name": "MID001_GiderlerinSistemeGirilmesi2",
+  "name": "RenovaFramework_Orchestrator",
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
@@ -11,7 +11,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.10.2.0",
-  "projectVersion": "1.0.10",
+  "projectVersion": "1.0.11",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -47,7 +47,10 @@
       "output": []
     }
   ],
-  "isTemplate": false,
-  "templateProjectData": {},
+  "isTemplate": true,
+  "templateProjectData": {
+    "defaultProjectDescription": "Robotic Enterprise Framework",
+    "defaultProjectName": "RenovaFramework_Orchestrator"
+  },
   "publishData": {}
 }
