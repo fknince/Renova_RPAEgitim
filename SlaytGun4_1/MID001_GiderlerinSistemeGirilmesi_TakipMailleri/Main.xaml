@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1201</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>891,1201</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -243,9 +243,9 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <Transition.To>
-                  <State x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,187" sap2010:WorkflowViewState.IdRef="State_3">
+                  <State x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="505,1735" sap2010:WorkflowViewState.IdRef="State_3">
                     <State.Entry>
-                      <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="518,1059" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                      <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="459,1249" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -253,13 +253,16 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="409,648" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="421,1000" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Double" Name="dblDollarCurrency" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="367,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                            <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_25">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
                               </Assign.To>
@@ -267,7 +270,7 @@
                                 <InArgument x:TypeArguments="ui:BusinessRuleException">[Nothing]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Sequence DisplayName="Sequence: Lokal değişkenler" sap:VirtualizedContainerService.HintSize="367,152" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                            <Sequence DisplayName="Sequence: Lokal değişkenler" sap:VirtualizedContainerService.HintSize="379,252" sap2010:WorkflowViewState.IdRef="Sequence_31">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -282,27 +285,69 @@
                                   <InArgument x:TypeArguments="x:String">[TransactionData("Çalışan No").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[strHarcamaTutari]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[TransactionData("Harcama Tutarı").ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
                             </Sequence>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ManipulationForInputData workflow" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="BackgroundWFs\ManipulationForInputData.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetDollarCurrencyFromWebservice workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" UnSafe="False" WorkflowFileName="BackgroundWFs\GetDollarCurrencyFromWebservice.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InOutArgument x:TypeArguments="x:String" x:Key="inOut_strCalisanNo">[strCalisanNo]</InOutArgument>
+                                <OutArgument x:TypeArguments="x:Double" x:Key="out_dblDolarCurrency">
+                                  <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="dblDollarCurrency" />
+                                </OutArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenMainSteps workflow" sap:VirtualizedContainerService.HintSize="367,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenMainSteps.xaml">
+                            <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strHarcamaTutari]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[Math.Round((cdbl(strHarcamaTutari) * dblDollarCurrency),2).ToString()]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ManipulationForInputData workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="BackgroundWFs\ManipulationForInputData.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strAd">[TransactionData("Ad").ToString]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strSoyad">[TransactionData("Soyad").ToString]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strCalisanNo">[strCalisanNo]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTarihi">[TransactionData("Harcama Tarihi").ToString]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTutari">[TransactionData("Harcama Tutarı").ToString]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strAciklama">[TransactionData("Açıklama").ToString]</InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_strKalem">[TransactionData("Kalem").ToString]</InArgument>
+                                <InOutArgument x:TypeArguments="x:String" x:Key="inOut_strCalisanNo">
+                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCalisanNo" />
+                                </InOutArgument>
+                                <InOutArgument x:TypeArguments="x:String" x:Key="inOut_strHarcamaTutari">
+                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strHarcamaTutari" />
+                                </InOutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenMainSteps workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenMainSteps.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strAd">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Ad&quot;).ToString" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strSoyad">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Soyad&quot;).ToString" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strCalisanNo">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCalisanNo" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTarihi">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Harcama Tarihi&quot;).ToString" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strHarcamaTutari">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strHarcamaTutari" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strAciklama">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Açıklama&quot;).ToString" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strKalem">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionData(&quot;Kalem&quot;).ToString" />
+                                </InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                           </Sequence>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="484,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                          <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="425,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -323,7 +368,7 @@
                               </Assign>
                             </ActivityAction>
                           </Catch>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="484,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="425,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -545,27 +590,13 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendMonitoringMail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="FrameworkWFs\SendMonitoringMail.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddress&quot;).ToString.Trim" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddressPass&quot;).ToString.Trim" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">
-                                                  <Literal x:TypeArguments="x:Int32" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">
-                                                  <Literal x:TypeArguments="x:String">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</Literal>
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strProjectName" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;monitoringMailToAddress&quot;).ToString.Trim" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="isSendingMonitoringMailSuccessful" />
-                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">[Config("senderrMailAddress").ToString.Trim]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">[Config("senderrMailAddressPass").ToString.Trim]</InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">0</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[strProjectName]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">[Config("monitoringMailToAddress").ToString.Trim]</InArgument>
+                                                <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">[isSendingMonitoringMailSuccessful]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                           </Sequence>
@@ -896,7 +927,9 @@
                                                     <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Transition.Condition>[SystemException is Nothing and BusinessException is Nothing]</Transition.Condition>
+                                                <Transition.Condition>
+                                                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException is Nothing and BusinessException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                                                </Transition.Condition>
                                                 <Transition.To>
                                                   <State x:Name="__ReferenceID3" DisplayName="Final State: Succces" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_8" IsFinal="True">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -969,7 +1002,9 @@
                                                         <Transition.To>
                                                           <x:Reference>__ReferenceID0</x:Reference>
                                                         </Transition.To>
-                                                        <Transition.Condition>True</Transition.Condition>
+                                                        <Transition.Condition>
+                                                          <Literal x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="Literal`1_1" Value="True" />
+                                                        </Transition.Condition>
                                                       </Transition>
                                                     </State.Transitions>
                                                   </State>
@@ -1087,19 +1122,19 @@
                                   <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException isNot Nothing or in_RobotRunningType.Equals(&quot;D&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                                 </Transition.Condition>
                                 <Transition.To>
-                                  <State x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="480,810" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                                  <State x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,119" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                                     <State.Entry>
-                                      <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="434,666" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                      <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="1167,2144" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                         <TryCatch.Try>
-                                          <Sequence sap:VirtualizedContainerService.HintSize="805,1486" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                          <Sequence sap:VirtualizedContainerService.HintSize="1129,1917" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <If Condition="[SystemException is Nothing and BusinessException Is Nothing]" DisplayName="If: Hata yok ise kaydetme işlemlerine geç" sap:VirtualizedContainerService.HintSize="763,1394" sap2010:WorkflowViewState.IdRef="If_12">
+                                            <If Condition="[SystemException is Nothing and BusinessException Is Nothing]" DisplayName="If: Hata yok ise kaydetme işlemlerine geç" sap:VirtualizedContainerService.HintSize="1087,1825" sap2010:WorkflowViewState.IdRef="If_12">
                                               <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="618,1246" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="942,1677" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                                   <Sequence.Variables>
                                                     <Variable x:TypeArguments="x:String" Name="strReferenceNo" />
                                                   </Sequence.Variables>
@@ -1108,29 +1143,50 @@
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <If Condition="[in_RobotRunningType.Equals(&quot;D&quot;)]" DisplayName="If. süreç sonu ön yüz işemlerini D gönderildi ise yapma" sap:VirtualizedContainerService.HintSize="576,504" sap2010:WorkflowViewState.IdRef="If_18">
+                                                  <If Condition="[in_RobotRunningType.Equals(&quot;D&quot;)]" DisplayName="If. süreç sonu ön yüz işemlerini D gönderildi ise yapma" sap:VirtualizedContainerService.HintSize="900,935" sap2010:WorkflowViewState.IdRef="If_18">
                                                     <If.Else>
-                                                      <Sequence sap:VirtualizedContainerService.HintSize="403,356" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="755,787" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                        <Sequence.Variables>
+                                                          <Variable x:TypeArguments="x:Boolean" Name="isDatabaseStepsSuccessful" />
+                                                        </Sequence.Variables>
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenSavingSteps workflow" sap:VirtualizedContainerService.HintSize="361,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenSavingSteps.xaml">
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenSavingSteps workflow" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenSavingSteps.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
                                                             <OutArgument x:TypeArguments="x:String" x:Key="out_strReferanceNo">[strReferenceNo]</OutArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
-                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenPDFExport workflow" sap:VirtualizedContainerService.HintSize="361,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenPDFExport.xaml">
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke HarcamalarScreenPDFExport workflow" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="SurfaceWFs\HarcamalarScreenPDFExport.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
                                                             <InArgument x:TypeArguments="x:String" x:Key="in_DirectoryPathToExport">[strTempFolderPath]</InArgument>
                                                             <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceNo">[strReferenceNo]</InArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
+                                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertReferenceToDatabase workflow" sap:VirtualizedContainerService.HintSize="713,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_46" UnSafe="False" WorkflowFileName="BackgroundWFs\InsertReferenceToDatabase.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_strConnectionString">[Config("databaseConnectionString").ToString().Trim]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_strProviderName">[Config("databaseProvider").ToString.Trim()]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_strRequesterName">Mülayim</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_strReferenceNo">[strReferenceNo]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_strPdfData">çokyakında</InArgument>
+                                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">[isDatabaseStepsSuccessful]</OutArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <If Condition="[isDatabaseStepsSuccessful]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_20">
+                                                          <If.Then>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Referans numarası veritabanına gönderildi.&quot;]" />
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Warn" Message="[&quot;Referans numarası veritabanına gönderilemedi.&quot;]" />
+                                                          </If.Else>
+                                                        </If>
                                                       </Sequence>
                                                     </If.Else>
                                                   </If>
-                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtbReportTable]" DisplayName="For Each Row:  rapor exceline referans numarası eklendi" sap:VirtualizedContainerService.HintSize="576,610" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtbReportTable]" DisplayName="For Each Row:  rapor exceline referans numarası eklendi" sap:VirtualizedContainerService.HintSize="900,610" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                                                     <ui:ForEachRow.Body>
                                                       <ActivityAction x:TypeArguments="sd:DataRow">
                                                         <ActivityAction.Argument>
@@ -1185,10 +1241,10 @@
                                           </Sequence>
                                         </TryCatch.Try>
                                         <TryCatch.Catches>
-                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,504" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1133,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
@@ -1196,7 +1252,7 @@
                                               <ActivityAction.Argument>
                                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                               </ActivityAction.Argument>
-                                              <Sequence DisplayName="Failed to close applications, so kill processes" sap:VirtualizedContainerService.HintSize="376,435" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                              <Sequence DisplayName="Failed to close applications, so kill processes" sap:VirtualizedContainerService.HintSize="376,238" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1272,13 +1328,16 @@
                     </State.Transitions>
                     <State.Variables>
                       <Variable x:TypeArguments="x:String" Name="strCalisanNo" />
+                      <Variable x:TypeArguments="x:String" Name="strHarcamaTutari" />
                     </State.Variables>
                   </State>
                 </Transition.To>
                 <Transition.Action>
                   <ui:LogMessage DisplayName="Log message (New transaction retrieved)" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[Config(&quot;LogMessage_GetTransactionData&quot;).ToString+TransactionNumber.ToString]" />
                 </Transition.Action>
-                <Transition.Condition>[TransactionItem IsNot Nothing]</Transition.Condition>
+                <Transition.Condition>
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="TransactionItem IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                </Transition.Condition>
               </Transition>
               <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="429.6,969.6" sap2010:WorkflowViewState.IdRef="Transition_7">
                 <sap:WorkflowViewStateService.ViewState>
@@ -1422,27 +1481,13 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendMonitoringMail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="FrameworkWFs\SendMonitoringMail.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddress&quot;).ToString.Trim" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddressPass&quot;).ToString.Trim" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">
-                      <Literal x:TypeArguments="x:Int32" Value="-1" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">
-                      <Literal x:TypeArguments="x:String">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</Literal>
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strProjectName" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;monitoringMailToAddress&quot;).ToString.Trim" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="isSendingMonitoringMailSuccessful" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">[Config("senderrMailAddress").ToString.Trim]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">[Config("senderrMailAddressPass").ToString.Trim]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">-1</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[strProjectName]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">[Config("monitoringMailToAddress").ToString.Trim]</InArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">[isSendingMonitoringMailSuccessful]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <Throw Exception="[IF(SystemException isNot nothing,SystemException,BusinessException)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
@@ -1451,27 +1496,13 @@
             <If.Else>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendMonitoringMail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="FrameworkWFs\SendMonitoringMail.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddress&quot;).ToString.Trim" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;senderrMailAddressPass&quot;).ToString.Trim" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">
-                    <Literal x:TypeArguments="x:Int32" Value="1" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">
-                    <Literal x:TypeArguments="x:String">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strProjectName" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;monitoringMailToAddress&quot;).ToString.Trim" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="isSendingMonitoringMailSuccessful" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SenderMailAddress">[Config("senderrMailAddress").ToString.Trim]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strSenderMailAdressPassword">[Config("senderrMailAddressPass").ToString.Trim]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_intMailType">1</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strMailBodyTemplateFilePath">C:\RPA_GENERAL_TEMPLATE_FILES\MonitoringMailBodyTemplate.html</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[strProjectName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strToMailAdress">[Config("monitoringMailToAddress").ToString.Trim]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="out_isSuccessful">[isSendingMonitoringMailSuccessful]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </If.Else>
