@@ -455,6 +455,32 @@
           "lib/net45/NPOI.dll": {}
         }
       },
+      "Renova.B64Converter.Activities/0.1.0.104155328": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Activities",
+          "System.Activities.Core.Presentation",
+          "System.Activities.Presentation",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions",
+          "System.Xaml",
+          "System.Xml",
+          "System.Xml.Linq",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net461/_._": {}
+        },
+        "runtime": {
+          "lib/net461/Renova.B64Converter.Activities.Design.dll": {},
+          "lib/net461/Renova.B64Converter.Activities.dll": {}
+        }
+      },
       "SharpZipLib/1.2.0": {
         "type": "package",
         "compile": {
@@ -1985,6 +2011,21 @@
         "npoi.nuspec"
       ]
     },
+    "Renova.B64Converter.Activities/0.1.0.104155328": {
+      "sha512": "ZkOE9tWsWTFM8FrikQgRjYuc6d0NSZhoEF1Gtg13fC9TIqVCXi9i6xavDLsKwt3QwA6+jH2/KBoaPsYr23aULQ==",
+      "type": "package",
+      "path": "renova.b64converter.activities/0.1.0.104155328",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net461/Renova.B64Converter.Activities.Design.dll",
+        "lib/net461/Renova.B64Converter.Activities.Design.xml",
+        "lib/net461/Renova.B64Converter.Activities.dll",
+        "lib/net461/Renova.B64Converter.Activities.xml",
+        "packageIcon.png",
+        "renova.b64converter.activities.0.1.0.104155328.nupkg.sha512",
+        "renova.b64converter.activities.nuspec"
+      ]
+    },
     "SharpZipLib/1.2.0": {
       "sha512": "zvWa/L02JHNatdtjya6Swpudb2YEHaOLHL1eRrqpjm71iGRNUNONO5adUF/9CHbSJbzhELW1UoH4NGy7n7+3bQ==",
       "type": "package",
@@ -2996,6 +3037,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "Renova.B64Converter.Activities >= 0.1.0.104155328 <= 0.1.0.104155328",
       "UiPath.Database.Activities >= 1.3.7369.25200 <= 1.3.7369.25200",
       "UiPath.Excel.Activities >= 2.9.3 <= 2.9.3",
       "UiPath.System.Activities >= 20.10.1 <= 20.10.1",
@@ -3016,6 +3058,11 @@
     "frameworks": {
       "net461": {
         "dependencies": {
+          "Renova.B64Converter.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[0.1.0.104155328, 0.1.0.104155328]"
+          },
           "UiPath.Database.Activities": {
             "include": "Runtime",
             "target": "Package",

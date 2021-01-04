@@ -593,6 +593,48 @@
           "lib/net45/NPOI.dll": {}
         }
       },
+      "Renova.B64Converter.Activities/0.1.0.104155328": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Activities",
+          "System.Activities.Core.Presentation",
+          "System.Activities.Presentation",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions",
+          "System.Xaml",
+          "System.Xml",
+          "System.Xml.Linq",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net461/_._": {}
+        },
+        "runtime": {
+          "lib/net461/Renova.B64Converter.Activities.Design.dll": {},
+          "lib/net461/Renova.B64Converter.Activities.dll": {}
+        }
+      },
+      "RenovaLibrary/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.Excel.Activities": "2.9.3",
+          "UiPath.Mail.Activities": "1.9.3",
+          "UiPath.System.Activities": "20.10.1",
+          "UiPath.UIAutomation.Activities": "20.10.6"
+        },
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/RenovaLibrary.dll": {},
+          "lib/net45/RenovaLibrary_Expressions_56395328.dll": {}
+        }
+      },
       "RestSharp/106.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2609,6 +2651,39 @@
         "npoi.nuspec"
       ]
     },
+    "Renova.B64Converter.Activities/0.1.0.104155328": {
+      "sha512": "ZkOE9tWsWTFM8FrikQgRjYuc6d0NSZhoEF1Gtg13fC9TIqVCXi9i6xavDLsKwt3QwA6+jH2/KBoaPsYr23aULQ==",
+      "type": "package",
+      "path": "renova.b64converter.activities/0.1.0.104155328",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net461/Renova.B64Converter.Activities.Design.dll",
+        "lib/net461/Renova.B64Converter.Activities.Design.xml",
+        "lib/net461/Renova.B64Converter.Activities.dll",
+        "lib/net461/Renova.B64Converter.Activities.xml",
+        "packageIcon.png",
+        "renova.b64converter.activities.0.1.0.104155328.nupkg.sha512",
+        "renova.b64converter.activities.nuspec"
+      ]
+    },
+    "RenovaLibrary/1.0.1": {
+      "sha512": "AnG7NG1vl/9vIfYBr6ilzXanX5Yy/CnGNtogpw2D8C+aQ5feDmIpCsZohEiHTVzZzBVcnbFJbY30ozCADHbALA==",
+      "type": "package",
+      "path": "renovalibrary/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net45/.settings/Release/settings-1a5b880a.json",
+        "lib/net45/.settings/Release/settings-5190454b.json",
+        "lib/net45/.settings/Release/settings-590bb27b.json",
+        "lib/net45/.settings/Release/settings-9e9290da.json",
+        "lib/net45/.settings/Release/settings-a1b2dac1.json",
+        "lib/net45/RenovaLibrary.dll",
+        "lib/net45/RenovaLibrary_Expressions_56395328.dll",
+        "lib/net45/project.json",
+        "renovalibrary.1.0.1.nupkg.sha512",
+        "renovalibrary.nuspec"
+      ]
+    },
     "RestSharp/106.3.1": {
       "sha512": "TmlN7SXjK52zzpQDTuzw7IH3XQ2Svtss/4zvQBKIgf74QIVxvlxoAqQYu1EhNQ1bMSBIQ4aK120BO7W+v8/kiQ==",
       "type": "package",
@@ -3731,6 +3806,8 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "Renova.B64Converter.Activities >= 0.1.0.104155328 <= 0.1.0.104155328",
+      "RenovaLibrary >= 1.0.1 <= 1.0.1",
       "UiPath.Database.Activities >= 1.3.7369.25200 <= 1.3.7369.25200",
       "UiPath.Excel.Activities >= 2.9.3 <= 2.9.3",
       "UiPath.Mail.Activities >= 1.9.3 <= 1.9.3",
@@ -3746,13 +3823,23 @@
     "restore": {
       "projectUniqueName": "MID001_GiderlerinSistemeGirilmesi3",
       "projectName": "MID001_GiderlerinSistemeGirilmesi3",
-      "projectPath": "C:\\Users\\fince\\Desktop\\RENOVA_PROJECTS\\SlaytGun4_1\\MID001_GiderlerinSistemeGirilmesi_TakipMailleri\\.local",
+      "projectPath": "C:\\Users\\fince\\Desktop\\RENOVA_PROJECTS\\SlaytGun4_1\\MID001_GiderlerinSistemeGirilmesi_Mail_DB_WS\\.local",
       "packagesPath": "C:\\Users\\fince\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fince\\Desktop\\RENOVA_PROJECTS\\SlaytGun4_1\\MID001_GiderlerinSistemeGirilmesi_TakipMailleri\\.local"
+      "outputPath": "C:\\Users\\fince\\Desktop\\RENOVA_PROJECTS\\SlaytGun4_1\\MID001_GiderlerinSistemeGirilmesi_Mail_DB_WS\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "Renova.B64Converter.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[0.1.0.104155328, 0.1.0.104155328]"
+          },
+          "RenovaLibrary": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.1, 1.0.1]"
+          },
           "UiPath.Database.Activities": {
             "include": "Runtime",
             "target": "Package",

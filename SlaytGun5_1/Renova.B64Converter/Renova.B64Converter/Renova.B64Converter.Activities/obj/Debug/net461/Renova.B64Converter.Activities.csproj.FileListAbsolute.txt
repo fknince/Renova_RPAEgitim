@@ -1,0 +1,15 @@
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.Activities.dll
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.Activities.pdb
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.Activities.xml
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.dll
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.pdb
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\bin\Debug\net461\Renova.B64Converter.xml
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.csprojAssemblyReference.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.Properties.Resources.resources
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.csproj.GenerateResource.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.AssemblyInfoInputs.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.AssemblyInfo.cs
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.csproj.CoreCompileInputs.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.csproj.CopyComplete
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.dll
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter.Activities\obj\Debug\net461\Renova.B64Converter.Activities.pdb

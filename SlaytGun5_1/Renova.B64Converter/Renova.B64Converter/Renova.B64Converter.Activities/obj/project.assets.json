@@ -1,0 +1,80 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.6.1": {
+      "Renova.B64Converter/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "compile": {
+          "bin/placeholder/Renova.B64Converter.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Renova.B64Converter.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Renova.B64Converter/1.0.0": {
+      "type": "project",
+      "path": "../Renova.B64Converter/Renova.B64Converter.csproj",
+      "msbuildProject": "../Renova.B64Converter/Renova.B64Converter.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.6.1": [
+      "Renova.B64Converter >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\fince\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter.Activities\\Renova.B64Converter.Activities.csproj",
+      "projectName": "Renova.B64Converter.Activities.Implementation",
+      "projectPath": "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter.Activities\\Renova.B64Converter.Activities.csproj",
+      "packagesPath": "C:\\Users\\fince\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter.Activities\\obj\\",
+      "projectStyle": "PackageReference",
+      "crossTargeting": true,
+      "configFilePaths": [
+        "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\.nuget\\NuGet.Config",
+        "C:\\Users\\fince\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net461"
+      ],
+      "sources": {
+        "C:\\PUBLISHED_PACKAGES": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://nuget.org/api/v2/": {},
+        "https://www.myget.org/F/uipath/": {}
+      },
+      "frameworks": {
+        "net461": {
+          "targetAlias": "net461",
+          "projectReferences": {
+            "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter.csproj": {
+              "projectPath": "C:\\Users\\fince\\source\\repos\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter\\Renova.B64Converter.csproj",
+              "privateAssets": "all"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net461": {
+        "targetAlias": "net461",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\bin\Debug\net461\Renova.B64Converter.dll
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\bin\Debug\net461\Renova.B64Converter.pdb
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\bin\Debug\net461\Renova.B64Converter.xml
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.csprojAssemblyReference.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.Properties.Resources.resources
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.csproj.GenerateResource.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.AssemblyInfoInputs.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.AssemblyInfo.cs
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.csproj.CoreCompileInputs.cache
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.dll
+C:\Users\fince\source\repos\Renova.B64Converter\Renova.B64Converter\Renova.B64Converter\obj\Debug\net461\Renova.B64Converter.pdb
